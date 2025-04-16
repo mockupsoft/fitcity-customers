@@ -11,6 +11,7 @@ use App\Http\Controllers\mail_template\MailTemplateController;
 use App\Http\Controllers\notifications\NotificationsController;
 use App\Http\Controllers\permission\PermissionController;
 use App\Http\Controllers\PotentialCustomerRecordController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\smstemplate\SmsTemplateController;
 use App\Http\Controllers\Users\UsersController;
 use App\Models\Orders;
@@ -94,7 +95,8 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
     Route::POST('/product-basket-delete',[\App\Http\Controllers\ProductsController::class,'delete_basket'])->name('ProductsDelete');
     Route::POST('/product-basket-update',[\App\Http\Controllers\ProductsController::class,'update_basket'])->name('ProductsUpdate');
 
-
+    Route::resource('reservations',ReservationController::class);
+    Route::post('/reservations-vote',[\App\Http\Controllers\ReservationController::class,'vote'])->name('reservations.vote');
 
 });
 

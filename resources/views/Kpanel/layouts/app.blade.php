@@ -264,6 +264,35 @@
     $('#mainHeaderProfile').click(function(){
         $('.main-header-dropdown.dropdown-menu.header-profile-dropdown.dropdown-menu-end').toggleClass('show')
     })
+
+    @if(session('success'))
+    Toastify({
+        title:"Başarılı",
+        text: "{{ session('success') }}",
+        style: {
+            background: "green",
+        },
+        offset: {
+            x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
+    }).showToast();
+
+    @endif
+    @if(session('error'))
+    Toastify({
+        title:"Error",
+        text: "{{ session('error') }}",
+        style: {
+            background: "red",
+        },
+        offset: {
+            x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        },
+    }).showToast();
+
+    @endif
 </script>
 
 

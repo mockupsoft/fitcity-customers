@@ -55,7 +55,14 @@
                         <span class="side-menu__label" style="margin-left: 5px;font-size: 12px;">Ölçümlerim</span>
                     </a>
                 </li>
-
+                <li class="slide ">
+                    <a href="{{route('reservations.index')}}"
+                       class="side-menu__item @if(Route::currentRouteName() == "reservations.index") active @endif">
+                        <i class="fa fa-calendar"></i>
+                        <span class="side-menu__label"
+                              style="margin-left: 5px;font-size: 12px;">Takvim </span>
+                    </a>
+                </li>
                 <li class="slide__category"><span class="category-name">Ödemelerim</span></li>
                 <li class="slide ">
                     <a href="{{route('CreditCardList')}}"
