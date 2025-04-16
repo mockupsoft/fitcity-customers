@@ -15,7 +15,6 @@ class ReservationController extends Controller
 
             ]);
         $response = json_decode($response->body());
-
         if ($response->type == 'false')
             return redirect()->back()->with('error',$response->message);
 
@@ -87,22 +86,26 @@ class ReservationController extends Controller
                 'lesson_id' => $request->lesson_id,
             ]);
         $response = json_decode($response->body());
-        if ($response->type == 'false')
-            return redirect()->back()->with('error',$response->message);
 
-        return redirect()->back()->with('success',$response->message);
+        if ($response->type == 'false') {
+            return redirect()->back()->with('error', $response->message);
+        }
+
+        return redirect()->back()->with('success', $response->message);
     }
 
     public function vote(Request $request)
     {
         $response = Http::withToken('Bearer '.session('api_token'))
             ->post(env('API_URL').'/lesson_point', [
-                'lesson_id' => $request->lesson_id,
+                'lesson_id' => $request->reservation_id,
                 'general_rate' => $request->vote,
             ]);
         $response = json_decode($response->body());
-        if ($response->type == 'false')
+
+        if ($response->type == 'false') {
             return redirect()->back()->with('error',$response->message);
+        }
 
         return redirect()->back()->with('success',"Oylama Başarılı");
     }

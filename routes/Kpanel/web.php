@@ -96,7 +96,7 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
     Route::POST('/product-basket-update',[\App\Http\Controllers\ProductsController::class,'update_basket'])->name('ProductsUpdate');
 
     Route::resource('reservations',ReservationController::class);
-    Route::post('/reservations-vote',[\App\Http\Controllers\ReservationController::class,'vote'])->name('reservations.vote');
+    Route::post('/reservations-vote',[\App\Http\Controllers\ReservationController::class, 'vote'])->name('reservations.vote');
 
 });
 

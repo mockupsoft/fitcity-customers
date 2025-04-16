@@ -54,17 +54,21 @@
                                                 </form>
                                                 @if($endTime->isPast())
                                                     <button type="button" class="table-action btn btn-danger btn-sm" onclick="$('#voteModal{{ $reservation->id }}').modal('show')">Oyla</button>
-                                                    <div class="modal fade" id="voteModal{{ $reservation->id }}" tabindex="-1" role="dialog" aria-labelledby="voteModal{{ $reservation->id }}"
-                                                         aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="voteModal{{ $reservation->id }}" tabindex="-1" role="dialog" aria-labelledby="voteModalLabel{{ $reservation->id }}" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document"> <!-- modal-dialog-centered ile ortalanmış olur -->
                                                             <div class="modal-content">
-                                                                <div class="modal-body sanaldmodalbody">
-                                                                    <form action="{{ route('reservations.vote') }}" method="POST" style="display:inline-block;">
-                                                                        <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
-                                                                        @csrf
-                                                                        <div class="form-group col-12 col-md-6 col-lg-6">
-                                                                            <label for="vote">Puan</label>
-                                                                            <select name="vote" class="form-control" id="vote" required>
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="voteModalLabel{{ $reservation->id }}">Oy Ver</h5>
+                                                                </div>
+
+                                                                <form action="{{ route('reservations.vote') }}" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden" name="reservation_id" value="{{ $reservation->id }}">
+                                                                    <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label for="voteSelect{{ $reservation->id }}">Puan</label>
+                                                                            <select name="vote" class="form-control" id="voteSelect{{ $reservation->id }}" required>
                                                                                 <option value="">Lütfen Seçim Yapınız</option>
                                                                                 <option value="5">Çok İyi</option>
                                                                                 <option value="4">İyi</option>
@@ -73,9 +77,13 @@
                                                                                 <option value="1">Çok Kötü</option>
                                                                             </select>
                                                                         </div>
-                                                                        <button type="button" class="table-action btn btn-danger btn-sm">Oy Ver</button>
-                                                                    </form>
-                                                                </div>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                                                                        <button type="submit" class="btn btn-primary">Oy Ver</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
