@@ -15,7 +15,7 @@
                         <h4 class="card-title"><strong>Rezevasyonlar</strong></h4>
                         <div class="text-right">
                             <a class="btn btn-success btn-sm mx-1" href="{{route('reservations.create',['type'=>'private_lesson'])}}">Özel Ders Oluştur<i class="fa fa-plus"></i></a>
-{{--                            <a class="btn btn-success btn-sm mx-1" href="{{route('reservations.create',['type'=>'group_lesson'])}}">Grup Ders Oluştur<i class="fa fa-plus"></i></a>--}}
+                            <a class="btn btn-success btn-sm mx-1" href="{{route('reservations.create',['type'=>'group_lesson'])}}">Grup Ders Oluştur<i class="fa fa-plus"></i></a>
                             <a class="btn btn-success btn-sm mx-1" href="{{route('reservations.create',['type'=>'measurement'])}}">Ölçüm Oluştur<i class="fa fa-plus"></i></a>
                         </div>
                     </header>
@@ -32,7 +32,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($reservations as $reservation)
+                                    @foreach($reservations ?? [] as $reservation)
                                         @php
                                             $startTime = \Carbon\Carbon::parse($reservation->lesson_date . ' ' . $reservation->lesson_start_time);
                                             $endTime = \Carbon\Carbon::parse($reservation->lesson_date . ' ' . $reservation->lesson_finish_time);

@@ -50,8 +50,8 @@
                                     <label for="male">Cinsiyet</label>
                                     <select name="male" class="form-control" id="male" required="">
                                         <option value="">Lutfen Seçim Yapınız</option>
-                                        <option @if($user->infos->cinsiyet == 1) selected="" @endif value="1">Erkek</option>
-                                        <option @if($user->infos->cinsiyet == 2) selected="" @endif value="2">Kadın</option>
+                                        <option @if($user?->infos?->cinsiyet == 1) selected="" @endif value="1">Erkek</option>
+                                        <option @if($user?->infos?->cinsiyet == 2) selected="" @endif value="2">Kadın</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-12 mt-1">

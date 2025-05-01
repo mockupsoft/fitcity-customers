@@ -1,6 +1,8 @@
 @extends('Kpanel.layouts.app')
 
-@section('page-title') Rezervasyon Ekle @endsection <!-- Sayfa title'ı ayarlanıyor -->
+@section('page-title')
+    Rezervasyon Ekle
+@endsection <!-- Sayfa title'ı ayarlanıyor -->
 
 @section('CssContent')
 
@@ -23,10 +25,13 @@
                                     <input type="hidden" name="type" value="{{ $_GET['type'] }}">
                                     <div class="form-group col-12 col-md-6 col-lg-6">
                                         <label for="date">Tarih</label>
-                                        <input type="date" class="form-control" min="{{ now()->format('Y-m-d') }}" name="date" id="date" placeholder="Tarih" required>
+                                        <input type="date" class="form-control" min="{{ now()->format('Y-m-d') }}"
+                                               name="date" id="date" placeholder="Tarih" required>
                                     </div>
                                     <div class="form-group col-12 text-center">
-                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Devam Et</button>
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Devam
+                                            Et
+                                        </button>
                                     </div>
                                 </form>
                             @elseif(!isset($_GET['personel_id']))
@@ -34,7 +39,7 @@
                                     <input type="hidden" name="type" value="{{ $_GET['type'] }}">
                                     <input type="hidden" name="date" value="{{ $_GET['date'] }}">
                                     <div class="row">
-                                        @foreach($personels as $personel)
+                                        @foreach($personels ?? [] as $personel)
                                             <div class="col-md-6">
                                                 <div class="card">
                                                     <div class="card-body">
@@ -47,7 +52,9 @@
                                                                     {{ $personel->name }}
                                                                     <span>Antrenör</span>
                                                                 </div>
-                                                                <button name="personel_id" value="{{ $personel->id }}" class="btn btn-sm btn-success">Seç</button>
+                                                                <button name="personel_id" value="{{ $personel->id }}"
+                                                                        class="btn btn-sm btn-success">Seç
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -71,7 +78,10 @@
                                                                 <div class="d-flex" style="flex-direction: column">
                                                                     {{ $time->start_time }} - {{ $time->finish_time }}
                                                                 </div>
-                                                                <button name="start_finish_time" value="{{ $personel->start_time }}_{{ $time->finish_time }}" class="btn btn-sm btn-success">Seç</button>
+                                                                <button name="start_finish_time"
+                                                                        value="{{ $time->start_time }}_{{ $time->finish_time }}"
+                                                                        class="btn btn-sm btn-success">Seç
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -86,6 +96,6 @@
                 </div>
             </div>
         </div>
-    </div><!--/.main-content -->
+    </div>
 @endsection
 

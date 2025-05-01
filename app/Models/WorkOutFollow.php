@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class WorkOutFollow extends Model
 {
     use HasFactory;
-    protected $table ="work_out_follow";
+    protected $table ="work_out_follows";
 }
