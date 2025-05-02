@@ -63,6 +63,14 @@
                               style="margin-left: 5px;font-size: 12px;">Takvim </span>
                     </a>
                 </li>
+                <li class="slide ">
+                    <a href="{{route('feedbacks.index')}}"
+                       class="side-menu__item @if(Route::currentRouteName() == "feedbacks.index") active @endif">
+                        <i class="fa fa-comments"></i>
+                        <span class="side-menu__label"
+                              style="margin-left: 5px;font-size: 12px;">Geri Bildirim </span>
+                    </a>
+                </li>
                 <li class="slide__category"><span class="category-name">Ödemelerim</span></li>
                 <li class="slide ">
                     <a href="{{route('CreditCardList')}}"

@@ -7,6 +7,7 @@ use App\Http\Controllers\category\CategoryController;
 use App\Http\Controllers\collective\CollectiveNotificationController;
 use App\Http\Controllers\crons_jobs\CronsJobsController;
 use App\Http\Controllers\customer\CustomerController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\mail_template\MailTemplateController;
 use App\Http\Controllers\notifications\NotificationsController;
 use App\Http\Controllers\permission\PermissionController;
@@ -97,6 +98,9 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
 
     Route::resource('reservations',ReservationController::class);
     Route::post('/reservations-vote',[\App\Http\Controllers\ReservationController::class, 'vote'])->name('reservations.vote');
+
+    Route::get('/feedbacks',[FeedbackController::class, 'index'])->name('feedbacks.index');
+    Route::post('/feedbacks', [FeedbackController::class, 'store'])->name('feedbacks.store');
 
 });
 
