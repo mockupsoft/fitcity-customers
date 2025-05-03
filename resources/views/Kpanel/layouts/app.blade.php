@@ -264,36 +264,37 @@
     $('#mainHeaderProfile').click(function(){
         $('.main-header-dropdown.dropdown-menu.header-profile-dropdown.dropdown-menu-end').toggleClass('show')
     })
-
-    @if(session('success'))
-    Toastify({
-        title:"Başarılı",
-        text: "{{ session('success') }}",
-        style: {
-            background: "green",
-        },
-        offset: {
-            x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-        },
-    }).showToast();
-
-    @endif
-    @if(session('error'))
-    Toastify({
-        title:"Error",
-        text: "{{ session('error') }}",
-        style: {
-            background: "red",
-        },
-        offset: {
-            x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-        },
-    }).showToast();
-
-    @endif
 </script>
+@if(session('success'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Toastify({
+                text: "{{ session('success') }}",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#4CAF50", // yeşil
+                close: true
+            }).showToast();
+        });
+    </script>
+@endif
+
+@if(session('error'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Toastify({
+                text: "{{ session('error') }}",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#f44336", // kırmızı
+                close: true
+            }).showToast();
+        });
+    </script>
+@endif
+
 
 
 

@@ -31,4 +31,9 @@ class Customer extends Model
     public function infos(){
         return $this->hasOne(CustomerInfo::class,'customer_id','id');
     }
+
+    public function fullName()
+    {
+        return $this->ad . ' ' . $this->ikinci_ad . ' ' . $this->soyad;
+    }
 }

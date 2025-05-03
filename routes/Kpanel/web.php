@@ -11,6 +11,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\mail_template\MailTemplateController;
 use App\Http\Controllers\notifications\NotificationsController;
 use App\Http\Controllers\permission\PermissionController;
+use App\Http\Controllers\PotentialCustomerController;
 use App\Http\Controllers\PotentialCustomerRecordController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\smstemplate\SmsTemplateController;
@@ -26,14 +27,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/sign-in',[AuthenticationController::class, 'sign_in'])->name('sign_in')->middleware('guest');
 Route::get('/register',[AuthenticationController::class, 'register'])->name('register')->middleware('guest');
-Route::POST('/register-post',[AuthenticationController::class, 'register_post'])->name('register_post')->middleware('guest');
-Route::POST('/register-post-sms',[AuthenticationController::class, 'register_post_sms'])->name('register_post_sms')->middleware('guest');
+Route::post('/register-post',[AuthenticationController::class, 'register_post'])->name('register_post')->middleware('guest');
+Route::post('/register-post-sms',[AuthenticationController::class, 'register_post_sms'])->name('register_post_sms')->middleware('guest');
 Route::post('/sign-in-post',[AuthenticationController::class, 'sign_in_post'])->name('sign_in_post')->middleware('guest');
 Route::post('/sign-in-post-sms',[AuthenticationController::class, 'sign_in_post_sms'])->name('sign_in_post_sms')->middleware('guest');
 Route::post('/getCustomerRegister',[AuthenticationController::class,'getCustomerRegister'])->name('getCustomerRegister');
 Route::post('/register_after_login',[AuthenticationController::class,'registerAfterLogin'])->name('registerAfterLogin');
-Route::POST('/getContractsCustomer',[\App\Http\Controllers\ApiController::class,'getContractsCustomer'])->name('getContractsCustomer');
-Route::POST('/getCounties',[\App\Http\Controllers\ApiController::class,'getCounties'])->name('getCounties');
+Route::post('/getContractsCustomer',[\App\Http\Controllers\ApiController::class,'getContractsCustomer'])->name('getContractsCustomer');
+Route::post('/getCounties', [\App\Http\Controllers\ApiController::class, 'getCounties'])->name('getCounties');
+
 
 
 Route::get('/payment_success',function(Request $request){
@@ -101,6 +103,9 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
 
     Route::get('/feedbacks',[FeedbackController::class, 'index'])->name('feedbacks.index');
     Route::post('/feedbacks', [FeedbackController::class, 'store'])->name('feedbacks.store');
+
+    Route::get('/potential-customers',[PotentialCustomerController::class, 'index'])->name('potential-customers.index');
+    Route::post('/potential-customers', [PotentialCustomerController::class, 'store'])->name('potential-customers.store');
 
 });
 
