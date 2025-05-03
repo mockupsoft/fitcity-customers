@@ -82,9 +82,17 @@
                 <li class="slide ">
                     <a href="{{route('feedbacks.index')}}"
                        class="side-menu__item @if(Route::currentRouteName() == "feedbacks.index") active @endif">
-                        <i class="fa fa-comments"></i>
+                        <i class="fa fa-comment"></i>
                         <span class="side-menu__label"
                               style="margin-left: 5px;font-size: 12px;">Geri Bildirim </span>
+                    </a>
+                </li>
+                <li class="slide ">
+                    <a href="{{route('ratings.index')}}"
+                       class="side-menu__item @if(Route::currentRouteName() == "ratings.index") active @endif">
+                        <i class="fa fa fa-comments"></i>
+                        <span class="side-menu__label"
+                              style="margin-left: 5px;font-size: 12px;">Değerlendirmeler </span>
                     </a>
                 </li>
                 <li class="slide__category"><span class="category-name">Ödemelerim</span></li>

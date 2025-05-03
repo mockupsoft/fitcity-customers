@@ -13,6 +13,7 @@ use App\Http\Controllers\notifications\NotificationsController;
 use App\Http\Controllers\permission\PermissionController;
 use App\Http\Controllers\PotentialCustomerController;
 use App\Http\Controllers\PotentialCustomerRecordController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\smstemplate\SmsTemplateController;
 use App\Http\Controllers\TrainersConstoller;
@@ -111,6 +112,8 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
     Route::get('/trainers',[TrainersConstoller::class, 'index'])->name('trainers.index');
     Route::get('/trainers/{trainer}', [TrainersConstoller::class, 'show'])->name('trainers.show');
 
+    Route::get('/ratings',[RatingController::class, 'index'])->name('ratings.index');
+    Route::post('/ratings',[RatingController::class, 'store'])->name('ratings.store');
 
 });
 
