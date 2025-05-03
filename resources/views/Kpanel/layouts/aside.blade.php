@@ -66,9 +66,17 @@
                 <li class="slide ">
                     <a href="{{route('potential-customers.index')}}"
                        class="side-menu__item @if(Route::currentRouteName() == "potential-customers.index") active @endif">
-                        <i class="fa fa-users"></i>
+                        <i class="fa fa-user"></i>
                         <span class="side-menu__label"
                               style="margin-left: 5px;font-size: 12px;">Potansiyel Üye Ekle </span>
+                    </a>
+                </li>
+                <li class="slide ">
+                    <a href="{{route('trainers.index')}}"
+                       class="side-menu__item @if(Route::currentRouteName() == "trainers.index") active @endif">
+                        <i class="fa fa-users"></i>
+                        <span class="side-menu__label"
+                              style="margin-left: 5px;font-size: 12px;">Eğitmenler </span>
                     </a>
                 </li>
                 <li class="slide ">

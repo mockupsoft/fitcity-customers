@@ -35,7 +35,7 @@ class PotentialCustomerController extends Controller
         })->first();
 
         if ($existingCustomer) {
-            return  redirect()->route('potential-customers.index')->with('info','Bu telefon numarasıyla bir müşteri zaten kayıtlı');
+            return  redirect()->route('potential-customers.create')->with('info','Bu telefon numarasıyla bir müşteri zaten kayıtlı');
         }
 
         $potentialCustomer = new PotentialCustomer();

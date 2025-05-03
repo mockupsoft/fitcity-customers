@@ -15,6 +15,7 @@ use App\Http\Controllers\PotentialCustomerController;
 use App\Http\Controllers\PotentialCustomerRecordController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\smstemplate\SmsTemplateController;
+use App\Http\Controllers\TrainersConstoller;
 use App\Http\Controllers\Users\UsersController;
 use App\Models\Orders;
 use App\Models\permission;
@@ -106,6 +107,10 @@ Route::middleware(['auth'])->prefix('/')->group(function () { // bunun içerisin
 
     Route::get('/potential-customers',[PotentialCustomerController::class, 'index'])->name('potential-customers.index');
     Route::post('/potential-customers', [PotentialCustomerController::class, 'store'])->name('potential-customers.store');
+
+    Route::get('/trainers',[TrainersConstoller::class, 'index'])->name('trainers.index');
+    Route::get('/trainers/{trainer}', [TrainersConstoller::class, 'show'])->name('trainers.show');
+
 
 });
 
